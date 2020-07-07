@@ -126,7 +126,7 @@ var xtra_data,
 	filesystem='CELL_FS_FAT',
 	mount_path='/dev_rewrite',
 	fail_msg_frag="<h1><span style='color:red'>Fallo al iniciar el exploit!</h1></span>",
-	progress_msg_frag1="<h1>Iniciando el hackeo de tu consola... ",
+	progress_msg_frag1="<h1>Iniciando instalador de HEN... ",
 	progress_msg_frag2='%</h1>',
 	write_file = "/dev_rewrite/vsh/resource/explore/xmb/category_network.xml",
 	baseURL = window.location.href.replace(/[^/]*$/, ''),
@@ -314,7 +314,7 @@ function checkMemory(address, size, len)
 function trigger(exploit_addr){
 	if(document.getElementById('trigger')){document.getElementById("trigger").innerHTML = -parseFloat("NAN(ffffe" + exploit_addr.toString(16) + ")");}
 	if (document.getElementById('trigger').innerHTML.indexOf("NaN") != -1) {
-		document.write("<html><h1><span style='color:red'>You must install Hybrid Firmware (HFW) before installing HEN!</h1></span></html>");
+		document.write("<html><h1><span style='color:red'>¡Debe instalar el firmware híbrido (HFW) antes de instalar HEN!</h1></span></html>");
 		return;
 	}
 }
@@ -510,7 +510,7 @@ function initROP(init)
 		if((j2===jump_2)&&(j1===jump_1)&&(x===xtra_data)&&(sf===stack_frame))
 		{
 			if(t_out!==0){clearTimeout(t_out);}
-			showResult('<h1>Preparando todo...');
+			showResult('<h1>Preparando...');
 			triggerX();
 		}
 		else
@@ -526,7 +526,7 @@ function initROP(init)
 function triggerX()
 {
 	setTimeout(trigger,100,jump_1_addr);
-	setTimeout(showResult,2000,"<h1>Como instalar HEN</h1><h2>1. Cierra el navegador<br>2. Abre uso a distancia y cierralo de inmediato<br>3. Usa el nuevo icono para descargar e instalar HEN</span><br>4. Reinicia la consola despues de la instalacion</h2>");
+	setTimeout(showResult,2000,"<h1>Como instalar HEN</h1><h2>1. Cierra el navegador<br>2. Abre uso a distancia, al cargar pulsa circulo para salir<br>3. Usa el nuevo icono para descargar e instalar HEN</span><br>4. Reinicia la consola despues de la instalacion<br><br>INSTALADOR_HEN_MOD le pertenece a OASIS-STORE y a su respectivo dueño,si este software es disfribuido en otro sitio notificame</h2>");
 	t_out=0;
 	total_loops=0;
 }
